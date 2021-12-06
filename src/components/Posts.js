@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 const styles = {
   searchContainer: {
     display: 'flex',
-    justifyContent: 'center',
+   
     padding: '16px',
     alignItems: 'center',
   },
@@ -77,10 +77,12 @@ const Posts = ({ posts }) => {
             <div>Posted by: {post.author.username}</div>
             <div>Description: {post.description}</div>
             <div>Location: {post.location}</div>
+            <div id ='buttons'>
             <button onClick={() => history.push(`/posts/${post._id}`)}>
               View Post
             </button>
             <button onClick={deletePost}>Delete Post</button>
+            </div>
           </div>
         ))
       ) : (
