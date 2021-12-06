@@ -31,6 +31,25 @@ const postMatches = (post, searchTerm) => {
   }
 };
 
+const deletePost = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/posts/${post._id}` , {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("token")}`
+      }
+
+    })
+
+    const data = await response.json();
+
+      
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 const Posts = ({ posts }) => {
   const history = useHistory();
   const [searchTerm, setSearchTerm] = useState('');
@@ -61,6 +80,7 @@ const Posts = ({ posts }) => {
             <button onClick={() => history.push(`/posts/${post._id}`)}>
               View Post
             </button>
+            <button onClick={deletePost}>Delete Post</button>
           </div>
         ))
       ) : (

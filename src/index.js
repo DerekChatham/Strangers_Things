@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { callApi } from './api';
-import { AccountForm, Posts, SinglePost, NewPostForm } from './components';
+import { AccountForm, Posts, SinglePost, NewPostForm} from './components';
+
+
+
+
+
 
 const App = () => {
   const [token, setToken] = useState('');
@@ -47,7 +52,13 @@ const App = () => {
   return (
     <>
       <h1>Stranger's Things</h1>
+      <span>
+      <Link to="/">Home</Link>
+      <Link to="/login">Login</Link>
       <Link to="/posts/new">Add A Post</Link>
+      <Link to="/posts">See All Post</Link>
+       </span>
+    
       <Switch>
         <Route exact path="/">
           {userData.username && <div>Hello {userData.username}</div>}
